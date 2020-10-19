@@ -19,3 +19,19 @@ const activeJobs1 = jobs.filter(function (job) {
     return job.isActive;
 });
 const activeJobs2 = jobs.filter(job => job.isActive);
+
+// Arrow functions do not rebind this
+const person = {
+    talk() {
+        setTimeout(() => {
+            console.log("this", this)
+        }, 1000);
+    }
+};
+
+person.talk();
+
+// Array.map
+const colors = ['red', 'green', 'blue'];
+const items = colors.map(color => `<li>${color}</li>`);
+console.log(items);
